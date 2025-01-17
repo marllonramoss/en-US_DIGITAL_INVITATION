@@ -3,9 +3,6 @@ import Event from '../model/Event';
 export default function validateEvent(event: Partial<Event>): string[] | null {
     const erros: string[] = [];
 
-    if (!event.id) {
-        erros.push('Id is required!');
-    }
     if (!event.name) {
         erros.push('Name is required!');
     }

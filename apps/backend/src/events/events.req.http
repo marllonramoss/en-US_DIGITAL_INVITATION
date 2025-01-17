@@ -1,0 +1,57 @@
+### GET EVENTS
+GET http://localhost:4000/events/
+
+### GET EVENTS BY ID OR ALIAS
+GET http://localhost:4000/events/advanced-js-event
+
+
+### Access Event
+
+POST http://localhost:4000/events/access
+Content-Type: application/json
+
+{
+    "id": "1",
+    "password": "password123"
+}
+
+### CREATE GUEST
+
+POST http://localhost:4000/events/fullstack-event/guest
+Content-Type: application/json
+
+{
+    "id": "10",
+    "name": "koko",
+    "email": "koko@gmail.com",
+    "confirmed": true,
+    "haveFriends": true,
+    "friendsQuantity": 10
+}
+### CREATE EVENT
+
+POST http://localhost:4000/events
+Content-Type: application/json
+
+{
+    "id": "",
+    "alias": "Party Test",
+    "password": "123",
+    "name": "Party Test",
+    "date": "2024-12-01T10:00:00Z",
+    "local": "RJ",
+    "description": "A friendly part for friends and family",
+    "image": "https://play-lh.googleusercontent.com/mpBm6uxkAwCTaDL7us2iG0L-Lpxb6_vUYxJ5dBMSrKFGZoION2lUY5RkJYModzngyIk",
+    "imageBackground": "https://play-lh.googleusercontent.com/mpBm6uxkAwCTaDL7us2iG0L-Lpxb6_vUYxJ5dBMSrKFGZoION2lUY5RkJYModzngyIk",
+    "quantityEstimated": 10,
+    "Guests": [
+        {
+                "id": "1",
+                "name": "Alice Silva",
+                "email": "alice@example.com",
+                "confirmed": true,
+                "haveFriends": true,
+                "friendsQuantity": 1
+            }
+    ]
+}

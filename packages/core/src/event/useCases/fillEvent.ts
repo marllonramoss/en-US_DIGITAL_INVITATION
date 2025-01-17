@@ -9,6 +9,8 @@ export class fillEvent {
     ) {}
 
     execute(): Event {
+        console.log('Start execute -------------------------');
+
         const errors = validateEvent(this.PartialEvent);
         if (errors.length) {
             throw new Error(errors.join('\n'));
@@ -16,10 +18,12 @@ export class fillEvent {
 
         const completedEvent: Event = {
             ...this.PartialEvent,
-            id: this.PartialEvent.id ?? this.idGenerator_port.generate(),
+            id: this.idGenerator_port.generate(),
             password: this.PartialEvent.password,
             quantityEstimated: this.PartialEvent.quantityEstimated ?? 1,
         } as Event;
+
+        console.error(completedEvent);
 
         return completedEvent;
     }

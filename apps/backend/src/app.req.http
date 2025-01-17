@@ -1,0 +1,3 @@
+### PING PONG REQ
+
+GET http://localhost:4000/pings
