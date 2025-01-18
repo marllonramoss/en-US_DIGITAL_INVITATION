@@ -7,10 +7,14 @@ import {
 } from '@digital-invitation/core';
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UuidProvider } from './uuid.provider';
+import { EventPrisma } from './event.prisma';
 
 @Controller('events')
 export class EventsController {
-  constructor(private readonly uuid: UuidProvider) {}
+  constructor(
+    private readonly uuid: UuidProvider,
+    private readonly prismaRepo: EventPrisma,
+  ) {}
 
   @Post()
   async saveEvent(@Body() event: Event) {

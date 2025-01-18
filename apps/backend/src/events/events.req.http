@@ -17,12 +17,12 @@ Content-Type: application/json
 
 ### CREATE GUEST
 
-POST http://localhost:4000/events/fullstack-event/guest
+POST http://localhost:4000/events/Party-Test2/guest
 Content-Type: application/json
 
 {
     "id": "10",
-    "name": "koko",
+    "name": "kokoz",
     "email": "koko@gmail.com",
     "confirmed": true,
     "haveFriends": true,
@@ -35,7 +35,7 @@ Content-Type: application/json
 
 {
     "id": "",
-    "alias": "Party Test",
+    "alias": "Party-Test2",
     "password": "123",
     "name": "Party Test",
     "date": "2024-12-01T10:00:00Z",
