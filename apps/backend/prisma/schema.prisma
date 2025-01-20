@@ -19,7 +19,7 @@ model Event {
   local             String
   description       String
   image             String
-  backgroundImage   String
+  imageBackground   String
   quantityEstimated Int
   guests            Guest[]
 

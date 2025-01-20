@@ -4,6 +4,8 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get('/ping')
   ping(): string {
+    console.log('PING PONG FUNCITON ACTIVED');
+
     return 'pong';
   }
 }

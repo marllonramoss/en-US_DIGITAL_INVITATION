@@ -14,8 +14,8 @@ const page = (props: any) => {
     params.all[1] ?? null
   );
 
-  const willGo = event?.Guests.filter((g) => g.confirmed) ?? [];
-  const notGo = event?.Guests.filter((g) => !g.confirmed) ?? [];
+  const willGo = event?.guests.filter((g) => g.confirmed) ?? [];
+  const notGo = event?.guests.filter((g) => !g.confirmed) ?? [];
   const total =
     willGo?.reduce((total: number, guest: Guest) => {
       return total + guest.friendsQuantity + 1;

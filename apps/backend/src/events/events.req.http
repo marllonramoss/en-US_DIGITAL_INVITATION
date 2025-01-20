@@ -5,25 +5,31 @@ GET http://localhost:4000/events/
 GET http://localhost:4000/events/advanced-js-event
 
 
+### VALIDADE ALIAS
+
+
+GET http://localhost:4000/events/validate/alberto-marina-wedding
+
+
 ### Access Event
 
 POST http://localhost:4000/events/access
 Content-Type: application/json
 
 {
-    "id": "1",
-    "password": "password123"
+    "id": "3",
+    "password": "front123"
 }
 
 ### CREATE GUEST
 
-POST http://localhost:4000/events/Party-Test2/guest
+POST http://localhost:4000/events/fullstack-event/guest
 Content-Type: application/json
 
 {
-    "id": "10",
-    "name": "kokoz",
-    "email": "koko@gmail.com",
+    "id": "121152",
+    "name": "33322kokoz",
+    "email": "asd@gmail.com",
     "confirmed": true,
     "haveFriends": true,
     "friendsQuantity": 10
@@ -35,7 +41,7 @@ Content-Type: application/json
 
 {
     "id": "",
-    "alias": "Party-Test2",
+    "alias": "Party-Test32321a2",
     "password": "123",
     "name": "Party Test",
     "date": "2024-12-01T10:00:00Z",
@@ -44,9 +50,9 @@ Content-Type: application/json
     "image": "https://play-lh.googleusercontent.com/mpBm6uxkAwCTaDL7us2iG0L-Lpxb6_vUYxJ5dBMSrKFGZoION2lUY5RkJYModzngyIk",
     "imageBackground": "https://play-lh.googleusercontent.com/mpBm6uxkAwCTaDL7us2iG0L-Lpxb6_vUYxJ5dBMSrKFGZoION2lUY5RkJYModzngyIk",
     "quantityEstimated": 10,
-    "Guests": [
+    "guests": [
         {
-                "id": "1",
+                "id": "",
                 "name": "Alice Silva",
                 "email": "alice@example.com",
                 "confirmed": true,

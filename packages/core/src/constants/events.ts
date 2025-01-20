@@ -14,7 +14,7 @@ const events: Event[] = [
         imageBackground:
             'https://images.prismic.io/vaultinum/0458a9f1-e149-4037-b9aa-aa4b4fb53c25_propriete-intellectuelle-code-source-protection-compressed.jpg?auto=compress,format&rect=0,0,2400,981&w=2400&h=981',
         quantityEstimated: 200,
-        Guests: [
+        guests: [
             {
                 id: '1',
                 name: 'Alice Silva',
@@ -53,7 +53,7 @@ const events: Event[] = [
         imageBackground:
             'https://blog.cronapp.io/wp-content/uploads/2020/09/javascript-1.jpg',
         quantityEstimated: 100,
-        Guests: [
+        guests: [
             {
                 id: '4',
                 name: 'Eduardo Santos',
@@ -84,7 +84,7 @@ const events: Event[] = [
         imageBackground:
             'https://www.frontendmag.com/wp-content/uploads/2023/01/easiest-front-end-framework.jpeg',
         quantityEstimated: 150,
-        Guests: [
+        guests: [
             {
                 id: '6',
                 name: 'Gabriela Rocha',
@@ -124,7 +124,7 @@ const events: Event[] = [
         imageBackground:
             'https://www.psicologo.com.br/wp-content/uploads/casamento-feliz-um-guia-para-casamentos-felizes.jpg',
         quantityEstimated: 150,
-        Guests: [
+        guests: [
             {
                 id: '9',
                 name: 'Bruno Cardoso',

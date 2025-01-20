@@ -21,9 +21,11 @@ export class fillEvent {
             id: this.idGenerator_port.generate(),
             password: this.PartialEvent.password,
             quantityEstimated: this.PartialEvent.quantityEstimated ?? 1,
+            guests: this.PartialEvent.guests.map((g) => ({
+                ...g,
+                id: this.idGenerator_port.generate(),
+            })),
         } as Event;
-
-        console.error(completedEvent);
 
         return completedEvent;
     }

@@ -18,32 +18,45 @@ export class EventsController {
 
   @Post()
   async saveEvent(@Body() event: Event) {
-    const existingEvent = events.find((e) => e.alias === event.alias);
-    if (existingEvent && existingEvent.id !== event.id) {
-      throw new Error('Event already registred');
+    const existingEventId = await this.prismaRepo.searchByAlias(event.id);
+
+    if (existingEventId) {
+      console.log('ID ALREADY EXIST');
+
+      throw new Error('Trying save event ERROR - Event ID already used');
     }
 
-    const filledEvent = new fillEvent(event, this.uuid);
+    const existingEventAlias = await this.prismaRepo.searchByAlias(event.alias);
 
-    events.push(filledEvent.execute());
+    if (existingEventAlias) {
+      console.log('ALIAS ALREADY EXIST');
+      throw new Error('Trying save event ERROR - Event ALIAS already used ');
+    }
+
+    console.log('EVENT BEFORE FILL EVENT EXECUTION', event);
+
+    const filledEvent = new fillEvent(event, this.uuid).execute();
+
+    console.log('EVENT AFTER FILL EVENT EXECUTION', filledEvent);
+
+    return await this.prismaRepo.save(filledEvent);
   }
 
   @Post(':alias/guest')
   async saveGuest(@Param('alias') alias: string, @Body() guest: Guest) {
-    const event = events.find((e) => e.alias === alias);
+    const event = await this.prismaRepo.searchByAlias(alias);
     if (!event) {
       throw new Error('Event not founded!');
     }
 
-    const filledGuest = new fillGuest(event, this.uuid);
+    const filledGuest = new fillGuest(guest, this.uuid).execute();
 
-    event.Guests.push(guest);
-    return filledGuest;
+    return await this.prismaRepo.saveGuest(event, filledGuest);
   }
 
   @Post('access')
   async accessEvent(@Body() data: { id: string; password: string }) {
-    const event = events.find((e) => e.id === data.id);
+    const event = await this.prismaRepo.searchById(data.id);
 
     const eventAuth = event.password === data.password;
 
@@ -58,19 +71,36 @@ export class EventsController {
 
   @Get()
   async searchEvents() {
-    return events;
+    return this.prismaRepo.searchAll();
   }
 
   @Get(':idOrAlias')
-  async searchEvent(@Param('idOrAlias') idOrAlias: string) {
-    if (idOrAlias) {
-      const response = events.find((e) => e.id === idOrAlias);
+  async searchEvent(@Param('idOrAlias') idOrAlias?: string) {
+    try {
+      const existingId = await this.prismaRepo.searchById(idOrAlias);
 
-      if (response) {
-        return response;
+      if (existingId) {
+        return existingId;
       } else {
-        return events.find((e) => e.alias === idOrAlias);
+        return await this.prismaRepo.searchByAlias(idOrAlias);
       }
+    } catch {
+      throw new Error('Error on search event controller method');
+    }
+  }
+
+  @Get('validate/:alias')
+  async validadeAlias(@Param('alias') alias: string) {
+    try {
+      const existingAlias = await this.prismaRepo.searchByAlias(alias);
+
+      if (existingAlias) {
+        return { valid: true };
+      } else {
+        return { valid: false };
+      }
+    } catch {
+      throw new Error('Errpr on validadeAlias controller method');
     }
   }
 }

@@ -8,7 +8,7 @@ CREATE TABLE "events" (
     "local" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "image" TEXT NOT NULL,
-    "backgroundImage" TEXT NOT NULL,
+    "imageBackground" TEXT NOT NULL,
     "quantityEstimated" INTEGER NOT NULL
 );
 

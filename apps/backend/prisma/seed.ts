@@ -15,10 +15,10 @@ async function seed() {
         local: e.local,
         description: e.description,
         image: e.image,
-        backgroundImage: e.imageBackground,
+        imageBackground: e.imageBackground,
         quantityEstimated: e.quantityEstimated,
         guests: {
-          create: e.Guests.map((g) => ({
+          create: e.guests.map((g) => ({
             id: g.id,
             name: g.name,
             email: g.email,

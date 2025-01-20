@@ -11,5 +11,5 @@ export default interface Event {
     image: string;
     imageBackground: string;
     quantityEstimated: number;
-    Guests: Guest[];
+    guests: Guest[];
 }
