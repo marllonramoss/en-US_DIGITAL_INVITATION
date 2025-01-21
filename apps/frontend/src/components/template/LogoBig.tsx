@@ -12,7 +12,7 @@ const LogoBig = () => {
   return (
     <Link
       href={"/"}
-      className={`${font.className} flex flex-col items-center gap-2`}
+      className={`${font.className} flex flex-col items-center gap-2 cursor-default select-none`}
     >
       <Image src="/logo.svg" width={100} height={100} alt="" />
       <h1 className="text-5xl  ">
